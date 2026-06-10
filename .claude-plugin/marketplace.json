@@ -1,0 +1,16 @@
+{
+  "name": "vibe-ux-skills",
+  "owner": {
+    "name": "tendtoyj",
+    "email": "tendtoyj@gmail.com"
+  },
+  "plugins": [
+    {
+      "name": "vibe-ux",
+      "description": "바이브 코딩으로 신규 서비스를 만들기 위한 UX 기획 플로우 스킬 모음. 아이디어 → 벤치마크 → 유저 플로우 → 브랜드 보이스 → 디자인 브랜드화 → PRD.",
+      "source": "./vibe-ux",
+      "category": "product",
+      "keywords": ["ux", "product", "planning", "prd", "vibe-coding"]
+    }
+  ]
+}

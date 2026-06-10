@@ -1,7 +1,7 @@
 {
   "name": "vibe-ux",
   "description": "바이브 코딩으로 신규 서비스를 만들기 위한 UX 기획 플로우 스킬 모음. 아이디어 브레인스토밍 → 벤치마크 리서치 → 유저 플로우 → 브랜드 보이스 → 디자인 시스템 브랜드화 → PRD까지 단계별로 docs를 쌓아간다.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": {
     "name": "tendtoyj",
     "email": "tendtoyj@gmail.com"

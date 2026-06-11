@@ -1,7 +1,7 @@
 {
   "name": "vibe-build",
-  "description": "바이브 코딩으로 신규 서비스를 구현하기 위한 빌드 플로우 스킬 모음. PRD에서 출발해 로드맵 → 마일스톤 계획 → 태스크 구현까지 단계별로 docs를 쌓아간다. spec → roadmap → plan → build 순서로 진행하며, vibe-ux 기획 산출물(PRD)을 입력으로 이어받는다.",
-  "version": "0.1.1",
+  "description": "바이브 코딩으로 신규 서비스를 구현하기 위한 빌드 플로우 스킬 모음. spec으로 PRD를 합성한 뒤 두 트랙으로 진행한다 — 목업 트랙(scaffold → mockup-plan → mockup-build, frontend-ui-engineering 보조)으로 화면 우선 목업을 만들고, 구현 트랙(roadmap → plan → build)으로 마일스톤 단위 기능을 쌓는다. vibe-ux 기획 산출물(PRD)을 입력으로 이어받는다.",
+  "version": "0.2.0",
   "author": {
     "name": "tendtoyj",
     "email": "tendtoyj@gmail.com"
@@ -9,5 +9,5 @@
   "homepage": "https://github.com/tendtoyj/vibe-ux-skills",
   "repository": "https://github.com/tendtoyj/vibe-ux-skills",
   "license": "MIT",
-  "keywords": ["build", "product", "planning", "roadmap", "prd", "vibe-coding"]
+  "keywords": ["build", "product", "planning", "roadmap", "mockup", "scaffold", "prd", "vibe-coding"]
 }

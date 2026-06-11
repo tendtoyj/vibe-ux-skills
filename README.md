@@ -24,10 +24,9 @@
 
 | 순서 | 스킬 | 입력 | 산출물 |
 |------|------|------|--------|
-| 1 | `spec` | `idea.md`, `userflow.md` | `docs/PRD.md` |
-| 2 | `roadmap` | `PRD.md` | `docs/ROADMAP.md` (프론트 목업 우선 마일스톤) |
-| 3 | `plan` | `PRD.md`, `ROADMAP.md` | `docs/milestones/M*/plan.md`, `tasks.md` |
-| 4 | `build` | 마일스톤의 `plan.md`, `tasks.md` | 구현된 코드 (예: `/build M1`) |
+| 1 | `roadmap` | `PRD.md` | `docs/ROADMAP.md` (프론트 목업 우선 마일스톤) |
+| 2 | `plan` | `PRD.md`, `ROADMAP.md` | `docs/milestones/M*/plan.md`, `tasks.md` |
+| 3 | `build` | 마일스톤의 `plan.md`, `tasks.md` | 구현된 코드 (예: `/build M1`) |
 
 각 단계는 독립적으로도 쓸 수 있지만, 순서대로 진행하면 앞 단계 산출물이 뒤 단계의 입력이 됩니다.
 
@@ -67,7 +66,6 @@ Claude Code에서는 스킬이 네임스페이스와 함께 등록됩니다:
 /vibe-ux:to-prd
 
 # 구현
-/vibe-build:spec
 /vibe-build:roadmap
 /vibe-build:plan
 /vibe-build:build
@@ -82,7 +80,6 @@ $userflow-generator
 $brand-voice
 $design-brandfit
 $to-prd
-$spec
 $roadmap
 $plan
 $build

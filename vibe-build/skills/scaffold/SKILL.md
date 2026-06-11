@@ -61,22 +61,33 @@ rg --files -g 'package.json' -g 'package-lock.json' -g 'app/**' -g 'src/app/**'
 
 `package.json`이 이미 있으면 새 프로젝트를 덮어씌우지 말고, 기존 구조에 필요한 패키지와 설정만 보정한다.
 
-현재 디렉터리에 중요한 파일이 있는데 새 Next.js 앱을 현재 경로에 생성해야 한다면, 삭제나 덮어쓰기를 하지 말고 먼저 사용자에게 확인한다.
+현재 디렉터리에 `CLAUDE.md`, `AGENTS.md`, `docs/` 같은 비-Next 파일이 이미 있어도, step 2의 임시 폴더 병합 방식을 쓰면 덮어쓰지 않고 앱을 생성할 수 있다. 기존 파일과 사용자 변경사항은 삭제하거나 덮어쓰지 않는다.
 
 ### 2. Next.js 앱 생성
 
-`package.json`이 없는 빈 레포라면 `create-next-app`으로 앱을 생성한다.
+`package.json`이 없는 새 레포라면 `create-next-app`으로 앱을 생성한다.
+
+주의: `create-next-app .`은 현재 폴더가 비어 있을 때만 동작한다. 폴더 안전 목록(`.git`, `.gitignore`, `README.md`, `docs/`, `LICENSE` 등)에 없는 파일이 하나라도 있으면 `The directory ... contains files that could conflict` 에러로 멈춘다. `CLAUDE.md`, `AGENTS.md`, `.claude/`, `.env.example` 등이 여기서 충돌한다. 이 안전 목록은 create-next-app 패키지에 하드코딩돼 있어 플래그로 넓힐 수 없다.
+
+따라서 빈 임시 폴더에 생성한 뒤 현재 폴더로 **덮어쓰지 않고 병합**한다.
 
 ```bash
-npx create-next-app@latest . --ts --app --tailwind --import-alias "@/*"
+# 1) 빈 임시 폴더에 생성한다. 폴더가 비어 있으니 충돌이 발생하지 않는다.
+npx create-next-app@latest .scaffold-tmp --ts --app --tailwind --import-alias "@/*" --disable-git --yes
+
+# 2) 생성 결과를 현재 폴더로 병합한다. -n(no-clobber)이라 기존 파일은 건드리지 않는다.
+cp -Rn .scaffold-tmp/. ./
+
+# 3) 임시 폴더를 정리한다.
+rm -rf .scaffold-tmp
 ```
 
-프롬프트가 나오면 기본 스택에 맞게 선택한다.
+- `--disable-git`: 임시 폴더 안에 중첩 git 레포가 생기는 걸 막는다. 현재 레포의 `.git`은 그대로 둔다.
+- `--yes`: 프롬프트 없이 기본 스택(TypeScript, App Router, Tailwind, import alias `@/*`)으로 생성한다.
+- `cp -Rn .scaffold-tmp/. ./`: 숨김 파일까지 포함해 복사하되, 이미 있는 파일(`CLAUDE.md`, `docs/`, `README.md` 등)은 덮어쓰지 않는다.
+- 병합 후 `.gitignore`를 확인한다. 기존 `.gitignore`가 보존돼서 `node_modules/`, `.next/`가 빠져 있으면 추가한다.
 
-- TypeScript: Yes
-- Tailwind CSS: Yes
-- App Router: Yes
-- import alias: `@/*`
+현재 폴더가 완전히 비어 있다면 임시 폴더 없이 `npx create-next-app@latest . --ts --app --tailwind --import-alias "@/*" --yes`를 바로 써도 된다.
 
 `create-next-app` 옵션이 현재 버전과 맞지 않으면 `npx create-next-app@latest --help`로 확인한 뒤 같은 의도를 유지하는 최신 옵션으로 실행한다.
 

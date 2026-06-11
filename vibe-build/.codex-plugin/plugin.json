@@ -1,6 +1,6 @@
 {
   "name": "vibe-build",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Vibe Build implementation skill pack for taking a product from PRD to working code via two tracks: a mockup track (scaffold → mockup-plan → mockup-build, aided by frontend-ui-engineering) and a build track (roadmap → plan → build).",
   "author": {
     "name": "tendtoyj",

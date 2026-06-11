@@ -11,6 +11,13 @@
       "source": "./vibe-ux",
       "category": "product",
       "keywords": ["ux", "product", "planning", "prd", "vibe-coding"]
+    },
+    {
+      "name": "vibe-build",
+      "description": "바이브 코딩으로 신규 서비스를 구현하기 위한 빌드 플로우 스킬 모음. PRD → 로드맵 → 마일스톤 계획 → 태스크 구현. spec, roadmap, plan, build.",
+      "source": "./vibe-build",
+      "category": "product",
+      "keywords": ["build", "product", "planning", "roadmap", "prd", "vibe-coding"]
     }
   ]
 }

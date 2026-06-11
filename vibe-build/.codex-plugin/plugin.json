@@ -1,0 +1,38 @@
+{
+  "name": "vibe-build",
+  "version": "0.1.0",
+  "description": "Vibe Build implementation skill pack for taking a product from PRD to working code: roadmap, milestone planning, and task-by-task build.",
+  "author": {
+    "name": "tendtoyj",
+    "email": "tendtoyj@gmail.com"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Vibe Build",
+    "shortDescription": "Build a new app or web product from PRD to working code.",
+    "longDescription": "Vibe Build bundles a staged implementation workflow that continues from a finished PRD: spec synthesis, frontend-first roadmap, per-milestone planning, and task-by-task building.",
+    "developerName": "tendtoyj",
+    "category": "Productivity",
+    "capabilities": [
+      "PRD synthesis",
+      "Roadmap planning",
+      "Milestone planning",
+      "Task implementation",
+      "TDD build"
+    ],
+    "websiteURL": "https://github.com/tendtoyj/vibe-ux-skills",
+    "brandColor": "#2F6BFF",
+    "defaultPrompt": "Help me build a new app or web service with the Vibe Build workflow."
+  },
+  "homepage": "https://github.com/tendtoyj/vibe-ux-skills",
+  "repository": "https://github.com/tendtoyj/vibe-ux-skills",
+  "license": "MIT",
+  "keywords": [
+    "build",
+    "product",
+    "planning",
+    "roadmap",
+    "prd",
+    "vibe-coding"
+  ]
+}

@@ -1,6 +1,6 @@
 {
   "name": "vibe-build",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Vibe Build implementation skill pack for taking a product from PRD to working code: roadmap, milestone planning, and task-by-task build.",
   "author": {
     "name": "tendtoyj",

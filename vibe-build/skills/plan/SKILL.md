@@ -100,6 +100,8 @@ docs/milestones/M1/tasks.md
 - 반응형 기준
 - 수동 시각 검증 기준
 
+**디자인 토큰 매핑 주의 (Tailwind 스택일 때):** `docs/DESIGN.md`의 간격 토큰이 t셔츠 이름(`sm`/`md`/`lg`/`xl`)이면, Tailwind v4의 `--spacing-*`가 크기 유틸(`max-w-`, `w-`, `h-`, `inset-`)과 네임스페이스를 공유해 `max-w-md` 등이 조용히 깨질 수 있다. "디자인 토큰 정리" 태스크의 Acceptance Criteria에 **"간격 토큰은 여백 전용, 콘텐츠 폭은 임의값(`max-w-[28rem]`) 또는 `--container-*` 토큰으로 분리"**를 명시한다.
+
 M1의 태스크는 실제 Supabase 연동, 실제 인증, 실제 DB 저장, 운영 백엔드 구현을 포함하지 않는다.
 
 ### M2+

@@ -77,6 +77,32 @@ RED -> GREEN -> build/verify -> commit -> mark complete -> next task
 - 완료: `- [x]`, `- [X]` 또는 태스크 제목/본문에 명확한 완료 표시
 - 미완료: `- [ ]`, 또는 완료 표시가 없는 `Task T###` 섹션
 
+# 디자인 토큰을 Tailwind에 매핑할 때 (M1 스타일 스캐폴딩)
+
+M1에서 `docs/DESIGN.md`의 디자인 토큰을 Tailwind v4 `@theme`로 옮길 때 아래를 지킨다.
+
+Tailwind v4의 `--spacing-*` 네임스페이스는 여백(padding/margin/gap)뿐 아니라
+크기 유틸리티(`w-`, `h-`, `size-`, `max-w-`, `min-w-`, `max-h-`, `min-h-`,
+`inset-`, `top/right/bottom/left-`, `translate-`)까지 함께 읽는다.
+따라서 DESIGN.md의 t셔츠 간격 이름(`sm`, `md`, `lg`, `xl`…)을 `--spacing-*`에
+그대로 정의하면, `max-w-md` 같은 유틸이 같은 이름을 끌어다 써서 조용히 깨진다
+(`max-w-md`가 컨테이너 폭 대신 간격 값 12px으로 해석됨).
+
+규칙:
+
+1. 여백 토큰은 `--spacing-*`에만 둔다. `gap-md`, `px-base`, `py-xxl`, `mt-lg`는
+   의도된 용도이므로 정상.
+2. 콘텐츠 폭·크기에는 t셔츠 키워드 유틸을 쓰지 않는다. `max-w-md`, `min-w-sm`,
+   `max-h-lg` 금지.
+   - 기본: 임의값으로 쓴다. 예: `max-w-[28rem]`, `max-w-[36rem]`.
+   - 같은 폭이 여러 곳에서 반복되면 `@theme`에 컨테이너 전용 토큰
+     (`--container-md: 28rem`)을 정의해 의미 이름을 살린다. (spacing의 `md`와
+     container의 `md`는 별도 개념임을 주석으로 남긴다.)
+3. 충돌이 의심되면 컴파일된 CSS로 검증한다. 빌드 산출 CSS에서 `max-w-md`가
+   `var(--spacing-*)`로 해석되면 충돌난 것이다.
+
+여백 계열(`p-`, `m-`, `gap-`, `space-`)은 `--spacing-*`의 원래 목적이므로 안전하다.
+
 # 태스크 실행 루프
 
 각 태스크마다 아래 순서를 지킨다.
